@@ -33,6 +33,10 @@ class SleepNightAdapter : RecyclerView.Adapter<SleepNightAdapter.ViewHolder>() {
     //    RecyclerView to display the data for one list item at the specified position
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
+        bind(holder, item)
+    }
+
+    private fun bind(holder: ViewHolder, item: SleepNight) {
         val res = holder.itemView.context.resources
         holder.sleepLength.text = convertDurationToFormatted(item.startTimeMilli, item.endTimeMilli, res)
 
